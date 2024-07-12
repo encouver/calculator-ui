@@ -23,6 +23,8 @@ function Calculator() {
   const [result, setResult] = useState(null);
   const [balance, setBalance] = useState(100); // Assume starting balance is 100
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
 
     axios.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
@@ -51,6 +53,7 @@ function Calculator() {
 
   const handleSubmit = async () => {
     try {
+      setIsLoading(true);
       axios.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
       axios.post(`${apiUrl ?? 'https://calculator-api-vq61.onrender.com/api/v1'}/operations/${operation}`, {
         type: operation,
@@ -64,6 +67,8 @@ function Calculator() {
         .catch((error: any) => {
           alert('Error: ' + error?.message || 'Unknown error')
           console.error('Error performing operation:', error);
+        }).finally(() => {
+          setIsLoading(false);
         });
 
     } catch (error) {
@@ -117,7 +122,7 @@ function Calculator() {
           />
         )}
 
-        <Button onClick={handleSubmit} variant="contained" sx={{ mt: 4 }}>
+        <Button onClick={handleSubmit} disabled={isLoading} variant="contained" sx={{ mt: 4 }}>
           Calculate
         </Button>
 
