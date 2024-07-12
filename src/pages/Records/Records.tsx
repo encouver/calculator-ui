@@ -29,7 +29,7 @@ function Records() {
     const sortBy = sortModel[0]?.field || 'operationResponse';
     const sortDirection = sortModel[0]?.sort || 'asc';
     axios.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
-    const response = await axios.get(`${apiUrl}/records/`,{
+    const response = await axios.get(`${apiUrl ?? 'https://calculator-api-vq61.onrender.com/api/v1'}/records/`,{
       params: {
           page: page,
           size: pageSize,
@@ -43,7 +43,7 @@ function Records() {
 
   const handleDelete = async (id: number) => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
-    await axios.delete(`${apiUrl}/records/${id}`);
+    await axios.delete(`${apiUrl ?? 'https://calculator-api-vq61.onrender.com/api/v1'}/records/${id}`);
     fetchRecords();
   };
 

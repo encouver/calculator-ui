@@ -27,7 +27,7 @@ function Calculator() {
 
     axios.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
 
-    axios.get(`${apiUrl}/users/balance`).then((response) => {
+    axios.get(`${apiUrl ?? 'https://calculator-api-vq61.onrender.com/api/v1'}/users/balance`).then((response) => {
       setBalance(response.data);
     }).catch((error: any) => {
       alert('Error fetching user balance')
@@ -52,7 +52,7 @@ function Calculator() {
   const handleSubmit = async () => {
     try {
       axios.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
-      axios.post(`${apiUrl}/operations/${operation}`, {
+      axios.post(`${apiUrl ?? 'https://calculator-api-vq61.onrender.com/api/v1'}/operations/${operation}`, {
         type: operation,
         a: parseFloat(value1),
         b: parseFloat(value2),
