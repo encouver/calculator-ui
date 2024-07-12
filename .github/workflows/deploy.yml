@@ -22,6 +22,12 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Login to Vercel
+        run: vercel login -t ${{ secrets.VERCEL_TOKEN }}
+
       - name: Install and Build React Application
         run: |
           npm install
