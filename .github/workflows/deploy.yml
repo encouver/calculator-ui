@@ -1,9 +1,5 @@
 name: Deploy Arithmetic Calculator UI
 
-# on:
-#   repository_dispatch:
-#     types: [deploy]
-
 on:
   push:
     branches:
@@ -26,7 +22,9 @@ jobs:
         run: npm install -g vercel
 
       - name: Login to Vercel
-        run: vercel login -t ${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel login --token $VERCEL_TOKEN
 
       - name: Install and Build React Application
         run: |
@@ -34,5 +32,6 @@ jobs:
           npm run build
 
       - name: Deploy to Vercel
-        run: vercel --prod
-        
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel --prod --token $VERCEL_TOKEN
