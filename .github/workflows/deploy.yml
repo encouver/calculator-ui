@@ -33,7 +33,6 @@ jobs:
           npm install
           npm run build
 
-      - name: Deploy React Application
-        run: |
-          npm start &
+      - name: Deploy to Vercel
+        run: vercel --prod
         
