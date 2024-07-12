@@ -12,12 +12,12 @@
     "isolatedModules": false,
     "noEmit": false,
     "jsx": "react-jsx",
-    "baseUrl": "./",
+    "baseUrl": "./index.js",
     "types": ["vite-plugin-pwa/client"],
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src", "src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
