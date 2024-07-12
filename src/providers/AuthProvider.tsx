@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }:{ children:any }) => {
   
     const handleLogin = async (username:string, password:string) => {
       try {
-        const response = await axios.post(`${apiUrl ?? 'https://calculator-api-vq61.onrender.com/api/v1'}/users/login`, { username, password });
+        const response = await axios.post(`${/*apiUrl ??*/ 'https://calculator-api-vq61.onrender.com/api/v1'}/users/login`, { username, password });
         const token = response.data;
         
         if(!token) 
