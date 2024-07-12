@@ -22,6 +22,8 @@ jobs:
         run: npm install -g vercel
 
       - name: Install and Build React Application
+        env:
+          REACT_APP_API_URL: https://calculator-api-vq61.onrender.com/api/v1
         run: |
           npm install
           npm run build
