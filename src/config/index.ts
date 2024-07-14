@@ -8,7 +8,7 @@ const email = 'marcospha@gmail.com';
 
 const repository = 'https://github.com/encouver/calculator-ui';
 
-const apiUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL : 'http://localhost:8088/api/v1';
+const apiUrl = import.meta.env.PROD ? import.meta.env.VITE_APP_API_URL : 'http://localhost:8088/api/v1';
 
 const messages = {
   app: {

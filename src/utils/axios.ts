@@ -1,9 +1,9 @@
 
 import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === 'production'
-  ? process.env.REACT_APP_API_URL
-  : 'https://calculator-api-vq61.onrender.com/api/v1';
+const baseURL = import.meta.env.PROD
+  ? import.meta.env.VITE_APP_API_URL
+  : 'localhost:8088/api/v1';
 
 const axiosServices = axios.create({ baseURL });
 
