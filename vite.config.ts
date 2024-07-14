@@ -22,6 +22,11 @@ export default defineConfig({
       },
     }),
   ],
+  define: {
+    'process.env': {
+      VITE_APP_API_URL: process.env.VITE_APP_API_URL,
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
