@@ -21,9 +21,11 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
+     - name: Create .env File
+        run: |
+          echo "VITE_APP_API_URL=${{ secrets.VITE_APP_API_URL }}" > .env
+
       - name: Install and Build React Application
-        env:
-          VITE_APP_API_URL: ${{ secrets.VITE_APP_API_URL }}
         run: |
           npm install
           npm run build
