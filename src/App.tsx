@@ -17,9 +17,14 @@ import { AuthProvider } from './providers/AuthProvider';
 
 import { StateMachineProvider } from "little-state-machine";
 import { DevTool } from "little-state-machine-devtools";
+import { apiUrl } from './config';
+
 
 function App() {
-  
+//   console.log(import.meta.env.PROD)
+// console.log("adfgadsfasdf")
+// console.log(import.meta.env.VITE_APP_API_URL )
+// console.log({apiUrl})
   return (
     <Fragment>
        <StateMachineProvider>
